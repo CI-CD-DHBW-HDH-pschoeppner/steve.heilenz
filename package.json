@@ -11,8 +11,8 @@
     "test": "jest",
     "format": "prettier --write ./src/**/*.{js,svelte,html,ts}",
     "format:check": "prettier -c ./src/**/*.{js,svelte,html,ts}",
-    "lint": "eslint './src/**/*.{js,ts,svelte}'",
-    "lint:fix": "eslint --fix './src/**/*.{js,ts,svelte}'"
+    "lint": "eslint ./src/**/*.{js,ts,svelte}",
+    "lint:fix": "eslint --fix ./src/**/*.{js,ts,svelte}"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.3",

@@ -102,19 +102,15 @@ describe("generateColor", () => {
 
     expect(values).not.toBeNull();
 
-    // @ts-ignore
+    if (values === null) return;
+
     expect(Number(values[0])).toBeGreaterThanOrEqual(50);
-    // @ts-ignore
     expect(Number(values[0])).toBeLessThanOrEqual(150);
 
-    // @ts-ignore
     expect(Number(values[1])).toBeGreaterThanOrEqual(50);
-    // @ts-ignore
     expect(Number(values[1])).toBeLessThanOrEqual(150);
 
-    // @ts-ignore
     expect(Number(values[2])).toBeGreaterThanOrEqual(50);
-    // @ts-ignore
     expect(Number(values[2])).toBeLessThanOrEqual(150);
   });
 });
