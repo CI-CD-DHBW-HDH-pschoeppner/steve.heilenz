@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { validate as uuidValidate, version as uuidVersion } from "uuid";
 import {
   TodoItem,

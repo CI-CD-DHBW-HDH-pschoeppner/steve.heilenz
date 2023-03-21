@@ -53,4 +53,32 @@ export function generateColor(): string {
   return `rgb(${r},${g},${b})`;
 }
 
-export const todoList = writable<TodoItem[]>([]);
+function getCookie(cookieName: string) {
+  const name = cookieName + "=";
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const ca = decodedCookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+let initialTodos: TodoItem[] = [];
+
+if (navigator !== undefined && navigator.cookieEnabled) {
+  try {
+    const cookie = getCookie("todos");
+    const todosB64 = window.atob(cookie);
+    initialTodos = JSON.parse(todosB64) as TodoItem[];
+  } catch {
+    console.log("could not get todos from cookies");
+  }
+}
+
+export const todoList = writable<TodoItem[]>(initialTodos);

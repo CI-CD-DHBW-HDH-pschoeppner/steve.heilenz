@@ -3,8 +3,16 @@
 
   export let todos: TodoItem[];
   let filteredTodos: TodoItem[];
-
   let searchString = "";
+
+  $: {
+    if (navigator.cookieEnabled) {
+      // every time the todos change update the cookie
+      const todosJson = JSON.stringify(todos);
+      const todosJsonB64 = window.btoa(todosJson);
+      document.cookie = `todos=${todosJsonB64}; expires=Tue, 31 Dec 2999 12:00:00 UTC; path=/`;
+    }
+  }
 
   $: filteredTodos = todos.filter((todo) => {
     return todo.value.toLowerCase().includes(searchString.toLowerCase());
