@@ -7,7 +7,7 @@
   let searchString = "";
 
   $: filteredTodos = todos.filter((todo) => {
-    return todo.value.toLowerCase().includes(searchString.toLowerCase())
+    return todo.value.toLowerCase().includes(searchString.toLowerCase());
   });
 
   function deleteHandler(id: string) {
