@@ -1,4 +1,4 @@
-# Klausur 2023 DHBW HDH
+# Klausur 2023 DHBW HDH von Steve Heilenz
 
 ## Setup
 
