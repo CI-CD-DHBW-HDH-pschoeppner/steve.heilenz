@@ -4,8 +4,8 @@ COPY . .
 
 RUN npm install
 
-RUN npm run check
 RUN npm run format:check
+# RUN npm run check  # Svelte check causes an out of memory error when using in a Docker image build
 RUN npm run lint
 RUN npm run test
 
