@@ -4,12 +4,11 @@
   export let todos: TodoItem[];
   let filteredTodos: TodoItem[];
 
-  $: filteredTodos = todos.filter((todo) => {
-    // TODO: es sollen nur die Items zurückgegeben werden, die den searchString (case insensitive) enthalten
-    // Hier muss ein boolean zurückgegeben werden, der bestimmt, ob das Item (todo) angezeigt wird, oder nicht
-  });
-
   let searchString = "";
+
+  $: filteredTodos = todos.filter((todo) => {
+    return todo.value.toLowerCase().includes(searchString.toLowerCase())
+  });
 
   function deleteHandler(id: string) {
     todoList.update((value) => {
