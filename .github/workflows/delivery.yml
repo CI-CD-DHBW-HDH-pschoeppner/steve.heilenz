@@ -4,9 +4,6 @@ name: Build, test and push Docker image
 
 on:
   push:
-    # main has to be restricted from normal push,
-    # so this workflow runs only on a merged Pull Request
-    branches: [ main ]
 
 permissions:
   packages: write
@@ -14,7 +11,7 @@ permissions:
 env:
   NODE_VERSION: 18.14.2
   CONTAINER_REGISTRY: ghcr.io
-  IMAGE_NAME: ci-cd-dhbw-hdh-pschoeppner/steve.heilenz/steve-heilenz
+  IMAGE_NAME: ci-cd-dhbw-hdh-pschoeppner/steve.heilenz/steve.heilenz
 
 jobs:
   build-test-and-push:
